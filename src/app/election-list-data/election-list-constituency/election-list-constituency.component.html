@@ -1,0 +1,25 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle *ngFor="let item of constituency; let i= index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{item.constituency}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Votes</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let candidate of item.candidateDetails; let j = index">
+              <td>{{candidate.candidate}}</td>
+              <td>{{candidate.votes}}</td>
+              <td>{{getPercentage(candidate.candidate, candidate.votes)}} %</td>
+            </tr>
+          </tbody>
+        </table>
+    </mat-expansion-panel>
+  </mat-accordion>
